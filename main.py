@@ -1,7 +1,7 @@
 import sqlite3
 
 from flask import Flask, g
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 DATABASE = 'database.db'
 
@@ -15,6 +15,7 @@ def get_db():
 
 def create_app(debug=False):
     app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DATABASE}"
     app.debug = debug
     return app
 
