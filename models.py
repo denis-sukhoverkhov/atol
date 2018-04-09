@@ -1,5 +1,5 @@
-from main import db
 
+from main import db, app
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -10,3 +10,7 @@ class User(db.Model):
 
     def __repr__(self):
         return f"User {self.username}"
+
+
+if __name__ == '__main__':
+    db.create_all()
